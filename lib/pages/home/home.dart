@@ -14,9 +14,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Facebook Login'),
-      ),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -58,9 +55,12 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                Center(
-                  child: isLoggedIn
-                      ? Column(
+                isLoggedIn
+                    ? Positioned(
+                        top: size.height * .2,
+                        left: 0,
+                        right: 0,
+                        child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisSize: MainAxisSize.max,
@@ -113,20 +113,26 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                           ],
-                        )
-                      : MaterialButton(
+                        ),
+                      )
+                    : Positioned(
+                        top: size.height * .5,
+                        left: 0,
+                        right: 0,
+                        child: MaterialButton(
                           onPressed: () async {
-                            FacebookAuth.instance.login(permissions: [
-                              'email',
-                              'public_profile'
-                            ]).then((value) => FacebookAuth.instance
-                                    .getUserData()
-                                    .then((userData) {
+                            FacebookAuth.instance.login(
+                                permissions: ['email', 'public_profile']).then(
+                              (value) =>
+                                  FacebookAuth.instance.getUserData().then(
+                                (userData) {
                                   setState(() {
                                     isLoggedIn = true;
                                     _userObj = userData;
                                   });
-                                }));
+                                },
+                              ),
+                            );
                           },
                           child: Padding(
                             padding: EdgeInsets.symmetric(
@@ -150,7 +156,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
-                ),
+                      ),
               ],
             ),
           ],
