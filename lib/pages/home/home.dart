@@ -1,4 +1,3 @@
-import 'package:facebooklogin/widgets/clip1.dart';
 import '/widgets/clip1.dart';
 import '/widgets/clip2.dart';
 import 'package:flutter/material.dart';
