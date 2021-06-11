@@ -80,15 +80,16 @@ class _HomePageState extends State<HomePage> {
                             Text(_userObj['email']),
                             MaterialButton(
                               onPressed: () async {
-                                FacebookAuth.instance.logOut().then((value) =>
-                                    FacebookAuth.instance
-                                        .getUserData()
-                                        .then((userData) {
-                                      setState(() {
+                                FacebookAuth.instance.logOut().then(
+                                  (value) {
+                                    setState(
+                                      () {
                                         isLoggedIn = false;
                                         _userObj = {};
-                                      });
-                                    }));
+                                      },
+                                    );
+                                  },
+                                );
                               },
                               child: Padding(
                                 padding: EdgeInsets.symmetric(
@@ -126,10 +127,12 @@ class _HomePageState extends State<HomePage> {
                               (value) =>
                                   FacebookAuth.instance.getUserData().then(
                                 (userData) {
-                                  setState(() {
-                                    isLoggedIn = true;
-                                    _userObj = userData;
-                                  });
+                                  setState(
+                                    () {
+                                      isLoggedIn = true;
+                                      _userObj = userData;
+                                    },
+                                  );
                                 },
                               ),
                             );
