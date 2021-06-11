@@ -1,4 +1,4 @@
-import 'package:facebooklogin/pages/home/home.dart';
+import '/pages/home/home.dart';
 import 'package:flutter/material.dart';
 
 class ConfigApp extends StatefulWidget {

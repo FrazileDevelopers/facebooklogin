@@ -1,4 +1,4 @@
-package com.fz.facebooklogin
+package com.fz.flogin
 
 import io.flutter.embedding.android.FlutterActivity
 

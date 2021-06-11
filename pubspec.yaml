@@ -1,4 +1,4 @@
-name: facebooklogin
+name: flogin
 description: A new Flutter project.
 
 publish_to: "none"
@@ -20,6 +20,14 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_rename_app:
+
+flutter_rename_app:
+  application_name: Facebook Login
+  dart_package_name: flogin
+  application_id: com.fz.flogin
+  bundle_id: com.fz.flogin
+  android_package_name: com.fz.flogin
 
 flutter:
   uses-material-design: true
